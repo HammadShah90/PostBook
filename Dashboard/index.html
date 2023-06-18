@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostBook</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =====================NAVBAR START=================== -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container-fluid px-5">
+            <a class="navbar-brand" href="#"><img src="../Assets/Eo_circle_blue_letter-p.svg.png" alt=""
+                    style="width: 50px; margin: 0;"></a>
+            <form class="d-flex input-group align-items-center" aria-setsize="20" style="width: 40%;">
+                <i class="input-group-text fa-solid fa-magnifying-glass"></i>
+                <input class="form-control ps-0" type="search" placeholder="Search" aria-label="Search">
+            </form>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-center">
+                    <li class="nav-item d-flex align-items-center flex-column ms-2">
+                        <i class="fa-solid fa-house"></i>
+                        <a class="nav-link active fontSize" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item d-flex align-items-center flex-column ms-2">
+                        <i class="fa-solid fa-user-group"></i>
+                        <a class="nav-link fontSize" href="#">My Network</a>
+                    </li>
+                    <li class="nav-item d-flex align-items-center flex-column ms-2">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <a class="nav-link fontSize" href="#">Jobs</a>
+                    </li>
+                    <li class="nav-item d-flex align-items-center flex-column ms-2">
+                        <i class="fa-solid fa-comment-dots"></i>
+                        <a class="nav-link fontSize" href="#">Messaging</a>
+                    </li>
+                    <li class="nav-item d-flex align-items-center flex-column ms-2">
+                        <i class="fa-solid fa-bell"></i>
+                        <a class="nav-link fontSize" href="#">Notifications</a>
+                    </li>
+                    <li class="nav-item dropdown d-flex align-items-center flex-column ms-2">
+                        <img src="../Assets/profilePic.jpg" alt="" class="rounded-circle"
+                            style="width: 22px; padding-bottom: 4px;">
+                        <a class="nav-link dropdown-toggle pb-2 p-0 fontSize" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Me
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#" onclick="logoutHandler()">logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- =====================NAVBAR END=================== -->
+
+
+    <!-- =====================MAINPAGE START=================== -->
+
+    <div class="container-fluid">
+        <div class="row mt-3 px-5 gap-3 ">
+
+            <!-- =====================SIDEBAR START=================== -->
+
+            <div class="col border profileImg" style="border-radius: 10px;">
+                <div class="postBgImg"></div>
+                <img src="../Assets/profilePic.jpg" alt="" class="d-flex justify-content-center position-relative"
+                    style="bottom: 20px; left: 102px; width: 80px; border: 2px solid #ffffff;">
+                <h5 id="userName" class="textAlign">User Name</h5>
+                <h6 id="userEmailAddress" class="textAlign">User Email</h6>
+                <h6 id="userDescription" class="textAlign border-bottom pb-4">User Description</h6>
+                <div class="d-flex justify-content-between px-2 mb-2" style="font-size: 12px;">
+                    <p class="bottomMargin">Who's viewed your profile</p>
+                    <p class="bottomMargin" style="color: #378fe9;">70</p>
+                </div>
+                <div class="d-flex justify-content-between px-2 mb-2" style="font-size: 12px;">
+                    <p class="bottomMargin">Impressions of your post</p>
+                    <p class="bottomMargin" style="color: #378fe9;">5</p>
+                </div>
+            </div>
+
+            <!-- =====================SIDEBAR END=================== -->
+
+            <!-- =====================POSTAREA START=================== -->
+
+            <div class="col-6">
+                <div class="border p-3" style="border-radius: 10px;">
+                    <div class="profileImg d-flex align-items-center">
+                        <img src="../Assets/profilePic.jpg" alt="">
+
+                        <!-- ============BUTTON TRIGGER MODAL============ -->
+
+                        <button type="button" class="postButton ms-2" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">Start a post</button>
+                    </div>
+
+                    <!-- ===================MODAL START===================== -->
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <img src="../Assets/profilePic.jpg" alt="" class="rounded-circle"
+                                        style="width: 50px;">
+                                    <div class="ms-2">
+                                        <h5 class="modal-title" id="exampleModalLabel">Muhammad Hammad</h5>
+                                        <p class="mb-0">Post to Anyone</p>
+                                    </div>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <textarea name="comments" cols="60" rows="10" class="border-0"
+                                        style="color: #707070;" placeholder="What do want to talk about?"></textarea>
+                                </div>
+                                <div class="d-flex justify-content-evenly align-items-center mx-3 mt-2">
+                                    <input type="file" accept="image/*" name="image" id="file" style="display: none;">
+                                    <label for="file">
+                                        <div class="d-flex align-items-center btnHover">
+                                            <i class="fa-regular fa-image" style="color: #378fe9;"></i>
+                                            <p class="mb-0 ms-2">Photo</p>
+                                        </div>
+                                    </label>
+                                    <label for="file">
+                                        <div class="d-flex align-items-center btnHover">
+                                            <i class="fa-brands fa-youtube" style="color: #5f9b41;"></i>
+                                            <p class="mb-0 ms-2">Video</p>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn">
+                                        <i class="fa-regular fa-clock fs-3"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-primary rounded-pill px-4"
+                                        disabled>Post</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===================MODAL END===================== -->
+
+                    <div class="d-flex justify-content-between align-items-center mx-3 mt-2">
+                        <label for="file">
+                            <div class="d-flex align-items-center btnHover">
+                                <i class="fa-regular fa-image" style="color: #378fe9;"></i>
+                                <p class="mb-0 ms-2">Photo</p>
+                            </div>
+                        </label>
+                        <label for="file">
+                            <div class="d-flex align-items-center btnHover">
+                                <i class="fa-brands fa-youtube" style="color: #5f9b41;"></i>
+                                <p class="mb-0 ms-2">Video</p>
+                            </div>
+                        </label>
+                        <div class="d-flex align-items-center btnHover">
+                            <i class="fa-regular fa-calendar-check" style="color: #c37d16;"></i>
+                            <p class="mb-0 ms-2">Event</p>
+                        </div>
+                        <div class="d-flex align-items-center btnHover">
+                            <i class="fa-solid fa-book" style="color: #e16745;"></i>
+                            <p class="mb-0 ms-2">Write article</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="border p-3 mt-2" style="border-radius: 10px;">
+                    <div class="d-flex align-items-center">
+                        <img src="../Assets/friendImg.jpg" alt="" class="rounded-circle me-3"
+                            style="width: 50px; height: 50px;">
+                        <div>
+                            <div class="d-flex align-items-center">
+                                <h6 class="bottomMargin me-1" style="font-size: 14px;">Muhammad Ahsan Ayaz </h6>
+                                <p class="bottomMargin me-1 mb-1 fw-bold">.</p>
+                                <p class="bottomMargin">1st</p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="bottomMargin" style="font-size: 11px;">Google Developer Expert | Software
+                                    Architect & Head INstructor-...</p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="bottomMargin me-1" style="font-size: 11px;">5h</p>
+                                <p class="bottomMargin me-1 mb-1 fw-bold" style="font-size: 11px;">.</p>
+                                <i class="fa-solid fa-earth-asia align-self-center" style="font-size: 11px;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <p class="bottomMargin">
+                            Excited to share that ngx-device-detector (https://lnkd.in/dVjwsUHF) library also made it to
+                            the Google Dev-Libraries list.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="../Assets/postImg.jpg" alt="" style="width: 33.1em;">
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- =====================POSTAREA END=================== -->
+
+            <!-- =====================ASIDE START=================== -->
+
+            <div class="col border" style="border-radius: 10px;">
+                <div class="d-flex justify-content-between mt-3 align-items-center">
+                    <h6 class="bottomMargin">
+                        Add to your feed
+                    </h6>
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+                <div class="mt-4">
+                    <div class="d-flex align-items-center">
+                        <img src="../Assets/SirSufiyan.jpg" alt="" class="rounded-circle me-3"
+                            style="width: 50px; height: 50px;">
+                        <div>
+                            <div class="d-flex align-items-center">
+                                <h6 class="bottomMargin me-1" style="font-size: 14px;">Muhammad Sufiyan</h6>
+                            </div>
+                            <div class="d-flex">
+                                <p class="bottomMargin" style="font-size: 11px;">
+                                    Mern Developer @ Ashtar Global Solutions
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ms-5 mt-3">
+                        <button type="button" class="btn rounded-pill px-4 border">
+                            <i class="fa-solid fa-plus"></i>
+                            Follow
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="d-flex align-items-center">
+                        <img src="../Assets/Saylani.jpg" alt="" class="rounded-circle me-3"
+                            style="width: 50px; height: 50px;">
+                        <div>
+                            <div class="d-flex align-items-center">
+                                <h6 class="bottomMargin me-1" style="font-size: 14px;">Saylani Welfare International Trust Official</h6>
+                            </div>
+                            <div class="d-flex">
+                                <p class="bottomMargin" style="font-size: 11px;">
+                                    Company . Non Profit Organization
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ms-5 mt-3">
+                        <button type="button" class="btn rounded-pill px-4 border">
+                            <i class="fa-solid fa-plus"></i>
+                            Follow
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="d-flex align-items-center">
+                        <img src="../Assets/maham.jpg" alt="" class="rounded-circle me-3"
+                            style="width: 50px; height: 50px;">
+                        <div>
+                            <div class="d-flex align-items-center">
+                                <h6 class="bottomMargin me-1" style="font-size: 14px;">Maham Sohail</h6>
+                            </div>
+                            <div class="d-flex">
+                                <p class="bottomMargin" style="font-size: 11px;">Associate HR Manager|Technical
+                                    Recruiter
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ms-5 mt-3">
+                        <button type="button" class="btn rounded-pill px-4 border">
+                            <i class="fa-solid fa-plus"></i>
+                            Follow
+                        </button>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- =====================ASIDE END=================== -->
+
+        </div>
+
+    </div>
+
+    <!-- =====================MAINPAGE END=================== -->
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

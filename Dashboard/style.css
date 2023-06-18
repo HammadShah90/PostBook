@@ -1,0 +1,77 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.fontSize {
+    font-size: 14px;
+}
+
+.form-control {
+    border: none;
+}
+
+.input-group-text {
+    background-color: #ffffff;
+    border: none;
+}
+
+.profileImg img {
+    border-radius: 50px;
+    width: 50px;
+}
+
+.profileImg {
+    padding: 0;
+}
+
+.postButton {
+    border: 1px solid #b3b3b3;
+    border-radius: 50px;
+    width: 90%;
+    padding: 10px;
+    text-align: start;
+    font-weight: 500;
+    color: #aaaaaa;
+    transition: 0.5s;
+}
+
+.postButton:hover {
+    background-color: #ebebeb;
+}
+
+.btnHover {
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.btnHover:hover {
+    background-color: #ebebeb;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.modal-body textarea {
+    outline: 0px;
+}
+
+.postBgImg {
+    background-image: url(../Assets/BGImg.jpg);
+    height: 60px;
+    width: 278px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.textAlign {
+    text-align: center;
+}
+
+.bottomMargin {
+    margin-bottom: 0;
+}
